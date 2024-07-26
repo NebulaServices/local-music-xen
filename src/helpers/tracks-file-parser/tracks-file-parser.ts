@@ -26,7 +26,17 @@ export const tracksParser = async (
         }
       },
     )
+    async function doTheCoolThing() {
+      const filesDecon: any = [];
+      for (const file of files) {
+        console.log(file)
+        // @ts-ignore     
+        filesDecon.push({file: await file.file.getFile(), type: "file"}) 
+      }
+  
+      worker.postMessage(filesDecon)
+    }
+    doTheCoolThing();
 
-    worker.postMessage(files)
   })
 }
