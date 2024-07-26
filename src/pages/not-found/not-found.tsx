@@ -5,9 +5,9 @@ import { Scaffold } from '~/components/scaffold/scaffold'
 const NotFound = (): JSXElement => (
   <Scaffold title='Not found' topBar={false}>
     <MessageBanner
-      title='Nothing here :('
-      message='Page you were looking for was not found'
-      button={{ href: '/', title: 'Go Home' }}
+      title='Welcome to Snae Player!'
+      message='Lets get your experience started.'
+      button={{ href: '/', title: 'Get Started' }}
     />
   </Scaffold>
 )
