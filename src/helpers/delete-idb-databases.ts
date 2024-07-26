@@ -9,13 +9,13 @@ export const deleteIDBDatabases = async (
     const dbs = await idb.databases()
     dbs.forEach((db) => {
       if (db.name !== fullName) {
-        idb.deleteDatabase(db.name)
+        // idb.deleteDatabase(db.name)
       }
     })
   } else {
-    // Firefox doesn't support idb.databases() yet.
+    // Firefox doesn't support idb.databases() yet. 
     for (let i = 0; i < latestVersion; i += 1) {
-      idb.deleteDatabase(`${baseName}-${i}`)
+      // idb.deleteDatabase(`${baseName}-${i}`)
     }
   }
 }
