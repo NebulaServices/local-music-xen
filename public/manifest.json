@@ -1,0 +1,12 @@
+{
+    "name": "Snae Player",
+    "type": "auto",
+    "package": "anura.music",
+    "index": "index.html",
+    "icon": "icons/apple-touch-icon.png",
+    "wininfo": {
+      "title": "Snae Player",
+      "width": "800px",
+      "height": "600px"
+    }
+  }

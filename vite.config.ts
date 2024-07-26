@@ -16,6 +16,7 @@ const createMScreenshot = (name: string, sizes: string) => ({
 })
 
 export default defineConfig({
+  base: '', 
   resolve: {
     alias: {
       '~': path.resolve(__dirname, './src'),
@@ -73,40 +74,5 @@ export default defineConfig({
     ViteWebfontDownload([
       'https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;500&display=swap',
     ]),
-    serviceWorker({
-      manifest: {
-        short_name: 'Snae',
-        name: 'Snae player',
-        start_url: '/',
-        scope: '../',
-        theme_color: '#1a1a1a',
-        background_color: '#1a1a1a',
-        display: 'standalone',
-        orientation: 'portrait',
-        description: manifest.description,
-        icons: [
-          {
-            src: '/icons/icon_responsive.svg',
-            type: 'image/svg+xml',
-            sizes: 'any',
-            purpose: 'any',
-          },
-          {
-            src: '/icons/icon_maskable.svg',
-            type: 'image/svg+xml',
-            sizes: 'any',
-            purpose: 'maskable',
-          },
-        ],
-        screenshots: [
-          createMScreenshot('small_1', '1079x1919'),
-          createMScreenshot('small_2', '1079x1919'),
-          createMScreenshot('small_3', '1079x1919'),
-          createMScreenshot('medium_1', '1276x960'),
-          createMScreenshot('medium_2', '1276x960'),
-          createMScreenshot('medium_3', '1276x960'),
-        ],
-      },
-    }),
   ],
 })

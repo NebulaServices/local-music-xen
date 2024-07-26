@@ -1,13 +1,12 @@
 import { createEffect } from 'solid-js'
 import { setElementVars } from '@vanilla-extract/dynamic'
-import { registerServiceWorker } from '../../sw/register-sw'
 import { useAudioPlayer } from '../../audio/create-audio-player'
 import { usePlayerStore } from '../../stores/stores'
 import { installGlobalRipple } from '../../helpers/ripple/install-global-ripple'
 import { useDarkThemeEnabled } from '../../utils'
 import { colorsTheme } from '~/styles/vars.css'
 import * as styles from './app.css'
-import { toast } from '~/components/toast/toast'
+
 
 export const useSetupApp = (): void => {
   useAudioPlayer()
@@ -15,6 +14,10 @@ export const useSetupApp = (): void => {
   const [playerState] = usePlayerStore()
 
   const isDarkTheme = useDarkThemeEnabled()
+
+  // @ts-expect-error anura provides this to apps 
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-assignment
+  window.showDirectoryPicker = anura.fs.whatwgfs.showDirectoryPicker;
 
   const titlebarElement = document.querySelector(
     'meta[name="theme-color"]',
@@ -46,22 +49,23 @@ export const useSetupApp = (): void => {
     })
   })
 
+  /*  
   registerServiceWorker({
-    onNeedRefresh(updateSW) {
-      toast({
-        message: 'An app update is available',
-        duration: false,
-        controls: [
-          {
-            title: 'Reload',
-            action: () => {
-              updateSW()
+      onNeedRefresh(updateSW) {
+        toast({
+          message: 'An app update is available',
+          duration: false,
+          controls: [
+            {
+              title: 'Reload',
+              action: () => {
+                updateSW()
+              },
             },
-          },
-        ],
-      })
-    },
-  })
-
+          ],
+        })
+      },
+    })
+  */
   installGlobalRipple(styles.interactable)
 }
