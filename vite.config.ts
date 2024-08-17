@@ -3,17 +3,14 @@ import { defineConfig } from 'vite'
 import solidPlugin from 'vite-plugin-solid'
 import { vanillaExtractPlugin } from '@vanilla-extract/vite-plugin'
 import { createHtmlPlugin } from 'vite-plugin-html'
-import { ViteWebfontDownload } from 'vite-plugin-webfont-dl'
-import manifest from './package.json'
 import { mangleClassNames } from './lib/vite-mangle-classnames'
 import { injectScriptsToHtmlDuringBuild } from './lib/vite-inject-scripts-to-html'
-import { serviceWorker } from './lib/vite-service-worker'
 
-const createMScreenshot = (name: string, sizes: string) => ({
-  sizes,
-  src: `/screenshots/${name}.webp`,
-  type: 'image/webp',
-})
+// const createMScreenshot = (name: string, sizes: string) => ({
+//   sizes,
+//   src: `/screenshots/${name}.webp`,
+//   type: 'image/webp',
+// })
 
 export default defineConfig({
   base: '', 
@@ -71,8 +68,5 @@ export default defineConfig({
     solidPlugin({
       hot: false,
     }),
-    ViteWebfontDownload([
-      'https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;500&display=swap',
-    ]),
   ],
 })
