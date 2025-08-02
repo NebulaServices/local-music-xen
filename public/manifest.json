@@ -1,12 +1,11 @@
 {
-    "name": "Snae Player",
-    "type": "auto",
-    "package": "anura.music",
-    "index": "index.html",
+    "id": "com.snaeplayer",
+    "version": "1.0.0",
+    "type": "app",
+    "source": "index.html",
+    "title": "Snae Player",
     "icon": "icons/apple-touch-icon.png",
-    "wininfo": {
-      "title": "Snae Player",
-      "width": "800px",
-      "height": "600px"
+    "window": {
+        "xenFilePicker": true
     }
-  }
+}
