@@ -17,7 +17,7 @@ export const useSetupApp = (): void => {
 
   // @ts-expect-error anura provides this to apps 
   // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-assignment
-  window.showDirectoryPicker = anura.fs.whatwgfs.showDirectoryPicker;
+  // window.showDirectoryPicker = anura.fs.whatwgfs.showDirectoryPicker;
 
   const titlebarElement = document.querySelector(
     'meta[name="theme-color"]',
@@ -69,3 +69,4 @@ export const useSetupApp = (): void => {
   */
   installGlobalRipple(styles.interactable)
 }
+
